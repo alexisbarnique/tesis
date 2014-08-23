@@ -118,7 +118,7 @@
 				                    <ul class="nav" id="side-menu">
 				                        <li class="sidebar-search">
 				                            <div class="input-group custom-search-form">
-				                                <input type="text" class="form-control" placeholder="N° de factura...">
+				                                <input type="text" class="form-control" placeholder="N° de cliente...">
 				                                <span class="input-group-btn">
 				                                <button class="btn btn-default" type="button">
 				                                    <i class="fa fa-search"></i>
@@ -141,28 +141,18 @@
 				                            <!-- /.nav-second-level -->
 				                        </li>
 				                        <li>
-				                            <a href="tables.html"><i class="fa fa-table fa-fw"></i> Facturaci&oacute;n<span class="fa arrow"></span></a>
+				                            <a href="tables.html"><i class="fa fa-table fa-fw"></i> Reportes<span class="fa arrow"></span></a>
 				                            <ul class="nav nav-second-level">
 				                                <li>
-				                                    <a href="flot.html">Generar Factura</a>
+				                                    <a href="flot.html">Proveedores</a>
 				                                </li>
 				                                <li>
-				                                    <a href="morris.html">Buscar Factura</a>
+				                                    <a href="morris.html">Clientes</a>
+				                                </li>
+				                                <li>
+				                                    <a href="morris.html">Ventas</a>
 				                                </li>
 				                            </ul>
-				                        </li>
-				                       
-				                        <li>
-				                            <a href="#"><i class="fa fa-files-o fa-fw"></i>  Pedidos<span class="fa arrow"></span></a>
-				                            <ul class="nav nav-second-level">
-				                                <li>
-				                                    <a href="blank.html">Generar Pedido</a>
-				                                </li>
-				                                <li>
-				                                    <a href="login.html">Buscar Pedido</a>
-				                                </li>
-				                            </ul>
-				                            <!-- /.nav-second-level -->
 				                        </li>
 
 				                        <li>
@@ -182,22 +172,7 @@
 				                            <a href="#"><i class="fa fa-edit fa-fw"></i>  Diario<span class="fa arrow"></span></a>
 				                            <ul class="nav nav-second-level">
 				                                <li>
-				                                    <a href="apertura.php">Apertura</a>
-				                                </li>
-				                                <li>
-				                                    <a href="login.html">Devoluciones</a>
-				                                </li>
-				                                <li>
-				                                    <a href="login.html">Cambios</a>
-				                                </li>
-				                                <li>
-				                                    <a href="login.html">Ingresos</a>
-				                                </li>
-				                                <li>
-				                                    <a href="egresos.php">Egresos</a>
-				                                </li>
-				                                <li>
-				                                    <a href="login.html">Cierre</a>
+				                                    <a href="cierre.php">Cierre</a>
 				                                </li>
 				                            </ul>
 				                            <!-- /.nav-second-level -->
@@ -217,9 +192,6 @@
                                         </li>
                                         <li>
                                             <a href="listacli.php">Lista de clientes</a>
-                                        </li>
-                                        <li>
-                                            <a href="reportecli1.php">Reportes</a>
                                         </li>
                                     </ul>
                                     </li>
@@ -242,9 +214,6 @@
                                         </li>
                                         <li>
                                             <a href="modprov.php">Buscar</a>
-                                        </li>
-                                        <li>
-                                            <a href="reporteprov.php">Reportes</a>
                                         </li>
                                     </ul>
                                 </li>

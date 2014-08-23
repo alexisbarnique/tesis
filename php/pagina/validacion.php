@@ -40,18 +40,6 @@ if($_POST['usuario']!=null&&$_POST['password']!=null&&$_POST['login']==1)
             }
             cerrar($enlace);
             break;
-        case '3':
-           $enlace=conectarMe();
-            $sql="select p.cedula,p.nombre,p.apellido,u.nombre,n.id
-                    from personas as p, usuarios as u, niveles as n 
-                    where  u.nombre='$usuario' and u.id='3' and u.clave=md5('$pass') and u.nivel=n.id and u.id_persona=p.id";
-            $resul=basedatos($sql);
-            if($resul!=0)
-            {
-            $status="1";
-            }
-            cerrar($enlace);
-            break;
         default:
             ?>
             <script type="text/javascript">

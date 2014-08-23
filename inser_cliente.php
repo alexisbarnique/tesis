@@ -19,7 +19,7 @@
              </div>
              <div class="form-group">
                 <label>Rif</label>
-                <input class="form-control" name="rif" type="text">
+                <input class="form-control" name="rif" type="text" placeholder="j123456789">
              </div>
              <div class="form-group">
                 <label>Direccion</label>

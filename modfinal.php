@@ -24,7 +24,6 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    </tbody>
                                     <?php 
                                     while ($invfinal=pg_fetch_row($con))
                                     { 
@@ -37,6 +36,7 @@
                                     <?php  
                                     } cerrar($enlace);
                                     ?>
+                                </tbody>
                                 </table>
 <?php
     pie();

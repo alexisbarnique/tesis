@@ -17,33 +17,18 @@
                         <div class="panel-body">
                             <div>
                                 <label>Cliente</label>
-                                    <?php
-                                        $sql="SELECT id, razon FROM clientes.cliente WHERE estado='t' order by razon";
-                                        $result= basedatos($sql);
-                                        $arreglo_php = array();
-                                        if(pg_num_rows($result)==0)
-                                        {
-                                           array_push($arreglo_php, "No hay datos");
-                                        }
-                                        else{
-                                          while($clientes = pg_fetch_array($result)){
-                                            array_push($arreglo_php, $clientes["razon"]);
-                                          }
-                                        }  
-                                    ?>
-                                <script>
-                                  $(function(){
-                                    var autocompletar = new Array();
-                                    <?php //Esto es un poco de php para obtener lo que necesitamos
-                                     for($p = 0;$p < count($arreglo_php); $p++){ //usamos count para saber cuantos elementos hay ?>
-                                       autocompletar.push('<?php echo $arreglo_php[$p]; ?>');
-                                     <?php } ?>
-                                     $("#buscli").autocomplete({ //Usamos el ID de la caja de texto donde lo queremos
-                                       source: autocompletar //Le decimos que nuestra fuente es el arreglo
-                                     });
-                                  });
-                                </script>
-                                     <input type="text" id="buscli" name="buscli" class="form-control" autofocus required />
+                                 <select name="fact_cli" class="form-control" required autofocus>
+                                    <option value="" selected="selected">Seleccionar</option>
+                                <?php
+                                $query1="SELECT id, razon FROM clientes.cliente WHERE estado='t'";
+                                $result=basedatos($query1);
+                                while($row=pg_fetch_row($result))
+                                {
+                                ?>
+                                    <option value="<?php echo $row[0];?>"><?php echo $row[1];?></option>
+                                 <?php   
+                                }?>
+                                </select>
                              </div>
                         </div>
    
@@ -51,7 +36,6 @@
                                 <label>Productos</label>
                                     <button type="button" class="btn btn-primary btn-circle" data-toggle="modal" data-target="#myModal"><i class="fa fa-list"></i>
                                     </button>
-
                                     <!-- Modal -->
                             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -109,13 +93,12 @@
                                 <div class="table-responsive" id="selprodv">
                                     <table class="table table-striped table-bordered table-hover" id="selprodf1">
                                         <thead>
-                                            <th colspan="6"><center>Venta </center></th>
+                                            <th colspan="5"><center>Venta </center></th>
                                             <tr>
                                                 <th>Id </th>
                                                 <th>Nombre </th>
                                                 <th>Cantidad</th>
-                                                <th>Devolución</th>
-                                                <th>Precio</th>
+                                                <th>Precio Unitario</th>
                                                 <th>Eliminar</th>
                                             </tr>
                                         </thead>
@@ -125,7 +108,6 @@
                                             <th>&nbsp;</th>
                                             <th>Subtotal</th>
                                             <th><input type="number" id="subtotal" name="subtotal" class="form-control" value="0.00" readonly ></th>
-                                            <th>&nbsp;</th>
                                         </tfoot>
                                         <tbody></tbody>
                                     </table>

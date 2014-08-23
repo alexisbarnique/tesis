@@ -41,7 +41,7 @@ $("#modcli").on('click','#idcli', function(){
         });
         });
 // FUNCIONES PARA EVENTOS EN BOTONES #page-wrapper
-    $("#page-wrapper").on('click', 'button', function(){
+    $("#page-wrapper").click("#boton", function(){
        p=$(this).attr('name');
        switch(p)
        {
@@ -54,6 +54,12 @@ $("#modcli").on('click','#idcli', function(){
             case 'actiuser':
             x=$("#iu").val();
             $.post("../../activar.php",{iu: x, opc: v},function(datos){
+            $("#page-wrapper").html(datos);
+            });
+            break;
+            case 'elimcli':
+            x=$("#icli").val();
+            $.post("../../eliminar.php",{id_cli: x, opc: v},function(datos){
             $("#page-wrapper").html(datos);
             });
             break;
@@ -70,8 +76,14 @@ function sumaProductos(){
   }else{
     rows.each(function(index, data ){
       var precio = parseFloat($(this).find("#precio").val());
-      var cantidad = parseInt($(this).find("input[id^=l_pc]").val());
+      if(isNaN(parseInt($(this).find("input[id^=l_pc]").val()))){
+        var cantidad = 0;
+      }else{
+        var cantidad = parseInt($(this).find("input[id^=l_pc]").val());
+      }
+      
       nuevoTotal += (precio * cantidad);
+      alert(nuevoTotal);
       $("#subtotal").val(nuevoTotal);
     });   
   }            
@@ -83,7 +95,6 @@ function lista_p(x, a, c){
               "<td>" + c + "</td>" +
               "<td>" + x + "</td>" +
               "<td><center><input class='form-control' type='text' name='l_pc"+c+"' id='l_pc"+c+"' min='1' placeholder='0' required autofocus /></center></td>" +
-              "<td><center><input class='form-control' type='text' name='dev"+c+"' id='dev"+c+"' placeholder='0'  /></center></td>" +
               "<td><center><input class='form-control' name='precio' id='precio' type='text' value="+a+" readonly /></center></td>" +
               "<td><a href='#' onclick='bo("+c+"); sumaProductos();'>Borrar</a></td>" +
               "</tr>" ); 

@@ -5,7 +5,7 @@ if(isset($_POST['idclien']))
 //abro conexion solo si los datos existen
 include "php/pagina/pgsql.php";
 $enlace=conectarAd();
-$sql="select rif, razon, direccion, telefono1, telefono2, estado from clientes.cliente where rif='$idclien'";
+$sql="select rif, razon, direccion, telefono1, telefono2, estado, id from clientes.cliente where rif='$idclien'";
 $result=basedatos($sql);
 $row=pg_fetch_row($result);
 ?>
@@ -18,10 +18,10 @@ $row=pg_fetch_row($result);
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-        <form id="mod_cli" action="modif_cli.php" enctype="multipart/form-data" method="post">
              <div class="form-group">
                 <label>Razón</label>
                 <input class="form-control" name="mrazon" type="text" value="<?php echo $row[1];?>" autofocus disabled/>
+                <input name="mrazon" type="hidden" id="icli" value="<?php echo $row[6];?>" />
              </div>
              <div class="form-group">
                 <label>Rif</label>
@@ -43,19 +43,18 @@ $row=pg_fetch_row($result);
                     //muestra los botones correspondientes segun el estado
                     if($row[5]=='t')
                     {?>
-                        <center><button class="btn btn-outline btn-warning" name="elimcli" type="submit">Eliminar</button>
+                        <center><button class="btn btn-outline btn-warning" name="elimcli" id="boton" type="submit">Eliminar</button>
                     <?php
                     }
                     else
                     {
                     ?>
-                        <center><button class="btn btn-outline btn-success" name="acticli" type="submit">Activar</button>
+                        <center><button class="btn btn-outline btn-success" name="acticli" id="boton" type="submit">Activar</button>
 
                     <?php
                     }
                     ?>
-                        <button class="btn btn-outline btn-primary" name="actucli" type="submit">Actualizar</button></center>
-        </form>          
+                        <button class="btn btn-outline btn-primary" name="actucli" id="boton" type="submit" >Actualizar</button></center>
     <?php
 }
 ?>

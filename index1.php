@@ -3,17 +3,11 @@ session_start();
 
 if(isset($_SESSION['nivel']) and ($_SESSION['estado'] = 'autenticado'))
 {   
-    if($_SESSION['nivel']==1)
-    {
-        include ('libreria.php');
-    }
-    else
-    {
-    include ('libreria1.php');
-    }
+    include ('libreria.php');
+
     cab('Inversiones Verfresk C.A.');
 ?>
-<h1 class="page-header">Bienvenido: Administrador</h1>
+<h1 class="page-header">Bienvenido: Encargado</h1>
 	<center>
 		<form action="inser_cliente.php">
    			<button type="submit" class="btn btn-primary btn-circle btn-xl" title="Agregar clientes"><i class="fa fa-list"></i>
